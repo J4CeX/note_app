@@ -5,11 +5,15 @@ const noteList = document.getElementById('list');
 const displayList = () => {
   noteList.innerHTML = '';
   getNotes();
-  console.log(getNotes());
   notes.forEach((value) => {
     const li = document.createElement('li');
-    li.classList.add('list-title')
+    li.classList.add('list-title');
     li.setAttribute('id', value.id);
+
+    li.addEventListener('click', () => {
+      console.log(value.id);
+    });
+    
     li.innerText = value.title;
     noteList.appendChild(li);
   });
@@ -45,6 +49,3 @@ createButton.addEventListener('click', () => {
     displayList();
   });
 });
-
-
-
