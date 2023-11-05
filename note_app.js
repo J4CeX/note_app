@@ -1,11 +1,14 @@
-import {notes} from './notes.js';
+import {notes, setNotes, getNotes} from './notes.js';
 
 const noteList = document.getElementById('list');
 
 const displayList = () => {
   noteList.innerHTML = '';
+  getNotes();
+  console.log(getNotes());
   notes.forEach((value) => {
     const li = document.createElement('li');
+    li.classList.add('list-title')
     li.setAttribute('id', value.id);
     li.innerText = value.title;
     noteList.appendChild(li);
@@ -38,6 +41,7 @@ createButton.addEventListener('click', () => {
       content: ''
     }
     notes.push(newNote);
+    setNotes();
     displayList();
   });
 });

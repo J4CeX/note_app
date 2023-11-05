@@ -131,6 +131,10 @@ main {
   border-bottom: none;
 }
 
+.list-title {
+  cursor: pointer;
+}
+
 input {
   background-color: #EDE0D4;
   border: 1px solid #7F5539;
@@ -150,6 +154,7 @@ input:focus {
   border-left: none;
   background-color: #7F5539;
   color: #fff;
+  cursor: pointer;
 }
 /* footer */
 
