@@ -101,22 +101,56 @@ main {
   font-size: 1.25rem;
 }
 
-#list {
+#create-button {
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  height: 1em;
+  width: 1em;
+}
+
+#list-container {
   padding: 0.25rem;
 }
 
-#list ul {
+#list-container ul {
   list-style: none;
   display: flex;
   flex-direction: column;
 }
 
-#list ul li {
+#list-container ul li {
   padding: 0.5rem;
   border-bottom: solid 1px #000;
+  display: flex;
 }
 
+#list-container ul li:last-child {
+  border-bottom: none;
+}
 
+input {
+  background-color: #EDE0D4;
+  border: 1px solid #7F5539;
+  padding: 0.5rem;
+  font-size: 1rem; 
+  flex: 1;
+}
+
+input:focus {
+  outline: none;
+}
+
+#submit {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #000;
+  border-left: none;
+  background-color: #7F5539;
+  color: #fff;
+}
 /* footer */
 
 footer {

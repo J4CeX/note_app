@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Note App</title>
   <link rel="stylesheet" href="note_app.css">
-  <script defer src="note_app.js"></script>
+  <script defer src="note_app.js" type="module"></script>
 </head>
 <body>
   <header>
@@ -18,15 +18,11 @@
     <article id="note-container">
       <nav>
         <p>Note</p>
-        <p>+</p>
+        <button id="create-button">+</button>
       </nav>
-      <section id="list">
-        <ul>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
+      <section id="list-container">
+        <ul id="list">
+
         </ul>
       </section>
     </article>
