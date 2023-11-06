@@ -1,4 +1,4 @@
-import {notes, setNotes, getNotes} from './notes.js';
+import {notes, setNotes, getNotes, removeNote} from './notes.js';
 
 const noteList = document.getElementById('list');
 
@@ -9,6 +9,7 @@ const displayList = () => {
     const li = document.createElement('li');
     li.classList.add('list-title');
     li.setAttribute('id', value.id);
+    li.setAttribute('noteId', value.id);
     li.innerText = value.title;
     li.addEventListener('click', () => {
       console.log(value.id);
@@ -16,15 +17,10 @@ const displayList = () => {
     
     const span = document.createElement('span');
     span.classList.add('remove-button');
-    span.setAttribute('id', `button-${value.id}`);
+    span.setAttribute('removeButtonId', value.id);
     span.innerText = 'X';
     span.addEventListener('click', () => {
-      let newNotes = [];
-      notes.forEach((note) => {
-        if(note.id === li.getAttribute('id')) {
-          
-        }
-      });
+      removeNote(value.id);
       noteList.removeChild(li);
       setNotes();
     });
@@ -32,7 +28,6 @@ const displayList = () => {
     noteList.appendChild(li);
 
     document.getElementById(value.id).appendChild(span);
-
     setNotes();
   });
 }

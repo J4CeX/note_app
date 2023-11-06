@@ -18,3 +18,13 @@ export const getNotes = () => {
 export const setNotes = () => {
   localStorage.setItem('notes', JSON.stringify(notes));
 }
+
+export const removeNote = (noteId) => {
+  let newNotes = [];
+  notes.forEach((note) => {
+    if(note.id !== noteId) {
+      newNotes.push(note);
+    }
+  });
+  notes = newNotes;
+}
