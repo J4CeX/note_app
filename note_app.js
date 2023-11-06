@@ -9,21 +9,52 @@ const displayList = () => {
     const li = document.createElement('li');
     li.classList.add('list-title');
     li.setAttribute('id', value.id);
-
+    li.innerText = value.title;
     li.addEventListener('click', () => {
       console.log(value.id);
     });
     
-    li.innerText = value.title;
+    const span = document.createElement('span');
+    span.classList.add('remove-button');
+    span.setAttribute('id', `button-${value.id}`);
+    span.innerText = 'X';
+    span.addEventListener('click', () => {
+      let newNotes = [];
+      notes.forEach((note) => {
+        if(note.id === li.getAttribute('id')) {
+          
+        }
+      });
+      noteList.removeChild(li);
+      setNotes();
+    });
+
     noteList.appendChild(li);
+
+    document.getElementById(value.id).appendChild(span);
+
+    setNotes();
   });
 }
 
 displayList();
 
+const submitButtonListener = () => {
+  const inputNote = document.querySelector('input');
+  let newNote = {
+    id: notes[notes.length - 1].id + 1,
+    title: inputNote.value,
+    content: ''
+  }
+  notes.push(newNote);
+  setNotes();
+  displayList();
+};
+
 const createButton = document.getElementById('create-button');
 
 createButton.addEventListener('click', () => {
+  displayList();
   const li = document.createElement('li');
   const input = document.createElement('input');
   const button = document.createElement('button');
@@ -38,14 +69,13 @@ createButton.addEventListener('click', () => {
 
   const submitButton = document.getElementById('submit');
   submitButton.addEventListener('click', () => {
-    const inputNote = document.querySelector('input');
-    let newNote = {
-      id: notes[notes.length - 1].id + 1,
-      title: inputNote.value,
-      content: ''
+    if(input.value.trim() != '') {
+      submitButtonListener();
     }
-    notes.push(newNote);
-    setNotes();
-    displayList();
   });
+  window.addEventListener('keypress', (event) => {
+    if(event.key === 'Enter' && input.value.trim() != '') {
+      submitButtonListener();
+    }
+  })
 });

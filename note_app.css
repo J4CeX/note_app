@@ -133,6 +133,22 @@ main {
 
 .list-title {
   cursor: pointer;
+  position: relative;
+}
+
+.remove-button {
+  position: absolute;
+  right: 0.5rem;
+  top: 50%;
+  bottom: 50%;
+  margin-top: auto;
+  margin-bottom: auto;
+  height: 2rem;
+  width: 2rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 input {
