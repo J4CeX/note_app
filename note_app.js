@@ -12,7 +12,7 @@ const displayList = () => {
     li.setAttribute('noteId', value.id);
     li.innerText = value.title;
     li.addEventListener('click', () => {
-      displayNote(value.content);
+      displayNote(value.id);
     });
     
     const span = document.createElement('span');
@@ -79,25 +79,43 @@ createButton.addEventListener('click', () => {
   })
 });
 
-const returnButton = document.getElementById('return-button');
-returnButton.addEventListener('click', () => {
-  listContainer.classList.remove('hidden');
-  noteContainer.classList.add('hidden');
-
-  createButton.classList.remove('hidden');
-  returnButton.classList.add('hidden');
-});
-
-
 const listContainer = document.getElementById('list-container');
 const noteContainer = document.getElementById('note-container');
 
-const displayNote = (noteContent) => {
+const displayNote = (noteId) => {
   listContainer.classList.add('hidden');
   noteContainer.classList.remove('hidden');
 
-  noteContainer.innerText = noteContent;
+  let noteContent;
+
+  notes.forEach((note) => {
+    if(note.id === noteId) {
+      noteContent = note.content;
+    }
+  });
+
+  const textArea = document.createElement('textarea');
+  textArea.value = noteContent;
+  noteContainer.appendChild(textArea);
+
+  const returnButton = document.getElementById('return-button');
 
   createButton.classList.add('hidden');
   returnButton.classList.remove('hidden');
+
+  returnButton.addEventListener('click', () => {
+    notes.forEach((note) => {
+      if(note.id === noteId) {
+        note.content = textArea.value;
+      }
+    });
+
+    listContainer.classList.remove('hidden');
+    noteContainer.classList.add('hidden');
+
+    createButton.classList.remove('hidden');
+    returnButton.classList.add('hidden');
+
+    setNotes();
+  });
 }

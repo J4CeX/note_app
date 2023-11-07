@@ -82,6 +82,7 @@ main {
   background-color: #fff;
   box-shadow: 0 0 3px #000;
   background-color: #EDE0D4;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 768px) {
@@ -114,10 +115,6 @@ main {
 
 #list-container {
   padding: 0.25rem;
-}
-
-#note-container {
-  padding: 1rem;
 }
 
 #list-container ul {
@@ -176,6 +173,25 @@ input:focus {
   background-color: #7F5539;
   color: #fff;
   cursor: pointer;
+}
+
+#note-container {
+  position: relative;
+  height: 100%;
+}
+
+textarea {
+  outline: none;
+  resize: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #EDE0D4;
+  font-size: 1rem;
+  padding: 1rem;
+  border: none;
 }
 
 .hidden {
