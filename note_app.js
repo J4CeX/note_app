@@ -18,7 +18,7 @@ const displayList = () => {
     const span = document.createElement('span');
     span.classList.add('remove-button');
     span.setAttribute('removeButtonId', value.id);
-    span.innerText = 'X';
+    span.innerHTML = `<img src="cross-mark.png" height="40px" width="40px">`;
     span.addEventListener('click', () => {
       removeNote(value.id);
       noteList.removeChild(li);
@@ -66,11 +66,15 @@ createButton.addEventListener('click', () => {
   submitButton.addEventListener('click', () => {
     if(input.value.trim() != '') {
       submitButtonListener();
+    } else {
+      displayList();
     }
   });
   window.addEventListener('keypress', (event) => {
     if(event.key === 'Enter' && input.value.trim() != '') {
       submitButtonListener();
+    } else {
+      displayList();
     }
   })
 });
