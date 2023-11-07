@@ -72,7 +72,7 @@ main {
 
 /* note-container */
 
-#note-container {
+#note-app-container {
   position: absolute;
   bottom: 0;
   top: 0;
@@ -85,13 +85,13 @@ main {
 }
 
 @media screen and (max-width: 768px) {
-  #note-container {
+  #note-app-container {
     width: 100%;
     min-width: auto;
   }
 }
 
-#note-container nav {
+#note-app-container nav {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -101,7 +101,8 @@ main {
   font-size: 1.25rem;
 }
 
-#create-button {
+#create-button,
+#return-button {
   background-color: transparent;
   color: #fff;
   border: none;
@@ -113,6 +114,10 @@ main {
 
 #list-container {
   padding: 0.25rem;
+}
+
+#note-container {
+  padding: 1rem;
 }
 
 #list-container ul {
@@ -171,6 +176,10 @@ input:focus {
   background-color: #7F5539;
   color: #fff;
   cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 /* footer */
 

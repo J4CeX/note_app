@@ -12,7 +12,7 @@ const displayList = () => {
     li.setAttribute('noteId', value.id);
     li.innerText = value.title;
     li.addEventListener('click', () => {
-      console.log(value.id);
+      displayNote(value.content);
     });
     
     const span = document.createElement('span');
@@ -78,3 +78,26 @@ createButton.addEventListener('click', () => {
     }
   })
 });
+
+const returnButton = document.getElementById('return-button');
+returnButton.addEventListener('click', () => {
+  listContainer.classList.remove('hidden');
+  noteContainer.classList.add('hidden');
+
+  createButton.classList.remove('hidden');
+  returnButton.classList.add('hidden');
+});
+
+
+const listContainer = document.getElementById('list-container');
+const noteContainer = document.getElementById('note-container');
+
+const displayNote = (noteContent) => {
+  listContainer.classList.add('hidden');
+  noteContainer.classList.remove('hidden');
+
+  noteContainer.innerText = noteContent;
+
+  createButton.classList.add('hidden');
+  returnButton.classList.remove('hidden');
+}
