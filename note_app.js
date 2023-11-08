@@ -7,11 +7,12 @@ const displayList = () => {
   getNotes();
   notes.forEach((value) => {
     const li = document.createElement('li');
-    li.classList.add('list-title');
-    li.setAttribute('id', value.id);
-    li.setAttribute('noteId', value.id);
-    li.innerText = value.title;
-    li.addEventListener('click', () => {
+    const title = document.createElement('span');
+    title.classList.add('list-title');
+    title.setAttribute('id', value.id);
+    title.setAttribute('noteId', value.id);
+    title.innerText = value.title;
+    title.addEventListener('click', () => {
       displayNote(value.id);
     });
     
@@ -23,11 +24,14 @@ const displayList = () => {
       removeNote(value.id);
       noteList.removeChild(li);
       setNotes();
+      displayList();
     });
 
     noteList.appendChild(li);
 
-    document.getElementById(value.id).appendChild(span);
+    li.appendChild(title);
+    li.appendChild(span);
+
     setNotes();
   });
 }
@@ -59,7 +63,6 @@ createButton.addEventListener('click', () => {
   li.appendChild(input);
   li.appendChild(button);
   noteList.appendChild(li);
-  noteList.app
   document.querySelector('input').focus();
 
   const submitButton = document.getElementById('submit');
@@ -73,8 +76,10 @@ createButton.addEventListener('click', () => {
   window.addEventListener('keypress', (event) => {
     if(event.key === 'Enter' && input.value.trim() != '') {
       submitButtonListener();
-    } else {
+    } else if(event.key === 'Enter' && input.value.trim() == '') {
       displayList();
+    } else {
+      
     }
   })
 });

@@ -127,6 +127,8 @@ main {
   padding: 0.5rem;
   border-bottom: solid 1px #000;
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #list-container ul li:last-child {
@@ -135,22 +137,19 @@ main {
 
 .list-title {
   cursor: pointer;
-  position: relative;
+  display: block;
+  flex: 1;
 }
 
 .remove-button {
-  position: absolute;
-  right: 0.5rem;
-  top: 50%;
-  bottom: 50%;
-  margin-top: auto;
-  margin-bottom: auto;
+  display: block;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 2rem;
   width: 2rem;
   font-size: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 input {
