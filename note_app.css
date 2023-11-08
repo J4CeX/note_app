@@ -33,6 +33,7 @@ header {
   color: var(--HEADER-COLOR);
   background-color: var(--HEADER-BGCOLOR);
   position: fixed;
+  z-index: 1000;
   height: 50px;
   top: 0;
   right: 0;
@@ -137,12 +138,11 @@ main {
 
 .list-title {
   cursor: pointer;
-  display: block;
   flex: 1;
+  overflow: hidden;
 }
 
 .remove-button {
-  display: block;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -150,6 +150,8 @@ main {
   height: 2rem;
   width: 2rem;
   font-size: 1.5rem;
+  background-color: transparent;
+  border: none;
 }
 
 input {
@@ -158,6 +160,7 @@ input {
   padding: 0.5rem;
   font-size: 1rem; 
   flex: 1;
+  width: 4rem;
 }
 
 input:focus {

@@ -7,7 +7,7 @@ const displayList = () => {
   getNotes();
   notes.forEach((value) => {
     const li = document.createElement('li');
-    const title = document.createElement('span');
+    const title = document.createElement('p');
     title.classList.add('list-title');
     title.setAttribute('id', value.id);
     title.setAttribute('noteId', value.id);
@@ -16,11 +16,11 @@ const displayList = () => {
       displayNote(value.id);
     });
     
-    const span = document.createElement('span');
-    span.classList.add('remove-button');
-    span.setAttribute('removeButtonId', value.id);
-    span.innerHTML = `<img src="cross-mark.png" height="40px" width="40px">`;
-    span.addEventListener('click', () => {
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove-button');
+    removeButton.setAttribute('removeButtonId', value.id);
+    removeButton.innerHTML = `<img src="cross-mark.png" height="40px" width="40px">`;
+    removeButton.addEventListener('click', () => {
       removeNote(value.id);
       noteList.removeChild(li);
       setNotes();
@@ -30,7 +30,7 @@ const displayList = () => {
     noteList.appendChild(li);
 
     li.appendChild(title);
-    li.appendChild(span);
+    li.appendChild(removeButton);
 
     setNotes();
   });
