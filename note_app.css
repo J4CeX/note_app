@@ -103,15 +103,30 @@ main {
   font-size: 1.25rem;
 }
 
+#note-app-container nav p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #create-button,
 #return-button {
   background-color: transparent;
   color: #fff;
   border: none;
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   cursor: pointer;
   height: 1em;
   width: 1em;
+}
+
+#create-button div
+#return-button div {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #list-container {
@@ -149,9 +164,14 @@ main {
   justify-content: center;
   height: 2rem;
   width: 2rem;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   background-color: transparent;
   border: none;
+}
+
+.remove-button img {
+  height: 1em;
+  width: 1em;
 }
 
 input {
